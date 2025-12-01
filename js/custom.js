@@ -41,7 +41,7 @@ $('.counter-section .owl-carousel').owlCarousel({
            "DOMContentLoaded", () => {
                new Mmenu( "nav#menu", {
                   "offCanvas": {
-                     "position": "left"
+                     "position": "right-front"
                   },
                   "theme": "light"
                });

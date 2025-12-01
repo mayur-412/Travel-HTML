@@ -1207,6 +1207,9 @@ nav ul li:last-child a:hover{
 
 
 @media (max-width: 1024px){
+.input-sec{
+	margin-top: 10px;
+}
 .t-box:after, .counter-section:before{
 	display: none;
 }.t-box {
@@ -1572,6 +1575,7 @@ nav {
     display: block;
     width: 100%;
     text-align: center;
+    padding-right: 0;
 }
 .img-last {
     display: block;
@@ -1581,7 +1585,7 @@ nav {
  .btn input[type="text"], .btn input[type="Email"], .message textarea, .submit input[type="submit"] {
     width: 100%;
 }
-.footer-flex {
+.footer-flex, .accordian-section {
     flex-wrap: wrap;
     text-align: center;
 }
@@ -1599,7 +1603,7 @@ nav {
     flex-wrap: wrap;
 }
 .footer h3{
-	margin-top: 45px;
+	margin-top: 15px;
 }
 .t-box h2:before {
     width: 135px;
@@ -1620,7 +1624,7 @@ nav {
     bottom: -9px;
 }
 .com-name {
-    margin-top: 80px;
+    margin-top: 20px;
     text-align: center;
 }
 .like-section{
@@ -1691,11 +1695,11 @@ nav {
 
 .counter-section .owl-prev {
     left: 47px;
-    top: 366px;
+    top: 318px;
 }
 .counter-section .owl-next {
     right: 39px;
-    top: 366px;
+    top: 318px;
 }.t-box h2:before {
     width: 135px;
     left: 3px;
