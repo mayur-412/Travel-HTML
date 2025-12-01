@@ -1442,7 +1442,9 @@ nav ul li a{
 
 
 @media (max-width: 767px){
-
+.max-wt {
+    max-width: none;
+}
 .mobile-menu a img:first-child{
 	position: absolute;
 	left: 20px;
