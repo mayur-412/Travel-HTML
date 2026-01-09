@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'IBMPlexSansCondensed-BoldItalic';
+    src: url('../font/IBMPlexSansCondensed-BoldItalic.eot');
+    src: url('../font/IBMPlexSansCondensed-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../font/IBMPlexSansCondensed-BoldItalic.woff2') format('woff2'),
+        url('../font/IBMPlexSansCondensed-BoldItalic.woff') format('woff'),
+        url('../font/IBMPlexSansCondensed-BoldItalic.ttf') format('truetype'),
+        url('../font/IBMPlexSansCondensed-BoldItalic.svg#IBMPlexSansCondensed-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+

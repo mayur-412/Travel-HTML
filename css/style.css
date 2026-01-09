@@ -66,7 +66,9 @@ nav#menu {
 .mm-wrapper--opened nav ul li:last-child a{
 	display: none;
 }
-
+.mm-menu--opened{
+	background: #c4c4c4;
+}
 
 /* header-section style start */
 

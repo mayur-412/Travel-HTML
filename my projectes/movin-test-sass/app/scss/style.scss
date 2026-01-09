@@ -1,0 +1,2347 @@
+
+@use "variable" as var;
+@use "mixin" as mix;
+
+
+@font-face {
+    font-family: 'RobotoCondensed-Black';
+    src: url('../fonts/RobotoCondensed-Black.eot');
+    src: url('../fonts/RobotoCondensed-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-Black.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-Black.woff') format('woff'),
+        url('../fonts/RobotoCondensed-Black.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-Black.svg#RobotoCondensed-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Medium';
+    src: url('../fonts/RobotoCondensed-Medium.eot');
+    src: url('../fonts/RobotoCondensed-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-Medium.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-Medium.woff') format('woff'),
+        url('../fonts/RobotoCondensed-Medium.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-Medium.svg#RobotoCondensed-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    src: url('../fonts/RobotoCondensed-Bold.eot');
+    src: url('../fonts/RobotoCondensed-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-Bold.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-Bold.woff') format('woff'),
+        url('../fonts/RobotoCondensed-Bold.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-Bold.svg#RobotoCondensed-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Regular';
+    src: url('../fonts/RobotoCondensed-Regular.eot');
+    src: url('../fonts/RobotoCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-Regular.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-Regular.woff') format('woff'),
+        url('../fonts/RobotoCondensed-Regular.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-Regular.svg#RobotoCondensed-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-SemiBold';
+    src: url('../fonts/RobotoCondensed-SemiBold.eot');
+    src: url('../fonts/RobotoCondensed-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-SemiBold.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-SemiBold.woff') format('woff'),
+        url('../fonts/RobotoCondensed-SemiBold.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-SemiBold.svg#RobotoCondensed-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Roboto RobotoCondensed-Light';
+    src: url('../fonts/RobotoCondensed-Light.eot');
+    src: url('../fonts/RobotoCondensed-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RobotoCondensed-Light.woff2') format('woff2'),
+        url('../fonts/RobotoCondensed-Light.woff') format('woff'),
+        url('../fonts/RobotoCondensed-Light.ttf') format('truetype'),
+        url('../fonts/RobotoCondensed-Light.svg#RobotoCondensed-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../fonts/Roboto-Italic.eot');
+    src: url('../fonts/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Roboto-Italic.woff2') format('woff2'),
+        url('../fonts/Roboto-Italic.woff') format('woff'),
+        url('../fonts/Roboto-Italic.ttf') format('truetype'),
+        url('../fonts/Roboto-Italic.svg#Roboto-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+*{
+	box-sizing: border-box;
+}
+ body{
+	margin: 0;
+	background: #261817;
+}
+a{
+	text-decoration: none;
+	transition: 0.3s;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	margin: 0;
+}
+img{
+	max-width: 100%;
+}
+ul,ol{
+	margin: 0;
+	padding: 0;
+}
+.row{
+	max-width: 1480px;
+	margin: 0 auto;
+}
+.container{
+	width: 100%;
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.table{
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 100%;
+}
+.table-cell{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+/*mobile-menu style start*/
+
+.mm-wrapper--opened{
+    .mm-panel--opened{
+        background: var.$blackcolor;
+    }
+    .mm-navbar{
+        font-size: 25px;
+        line-height: 27px;
+        color: var.$whitecilor;
+        background: var.$blackcolor;
+        border: none;
+        border-bottom: 2px solid #d8d8d8;
+        font-family: 'RobotoCondensed-Bold';
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+     .mm-listitem{
+        color: var.$whitecilor;
+        font-size: 15px;
+        line-height: 15px;
+        font-family: 'RobotoCondensed-Medium';
+        font-weight: 500;
+        border-color:#fff2f2;
+        text-transform: uppercase;
+     }
+     .mm-btn--next:after{
+        border-color: var.$whitecilor;
+     }
+     .mm-btn--prev:before{
+        border-color: var.$whitecilor;
+     }
+    .open-menu{
+        a{
+            img{
+                &:last-child{
+                    display: block;
+                }
+                &:first-child{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.open-menu{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    a{
+        img{
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+}
+@media (min-width:768px){
+    .open-menu{
+        display: none;
+    }
+}
+
+/*mobile-menu style end*/
+
+
+
+/* header-sec style start */
+
+.header-sec{
+	padding-top: 32px;
+	padding-bottom: 32px;
+	background:var.$secondery;
+    @include mix.breakpoint(xl){
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    @include mix.breakpoint(md){
+        display: none;
+    }
+}
+
+header.container{
+         padding-left: 0;
+       padding-right: 0;
+	@include mix.head;
+    position: relative;
+    @include mix.breakpoint(md){
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }   
+    .logo{
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        max-width: 90px;
+         @include mix.breakpoint(xxl){
+            left: 20px;
+         }
+         @include mix.breakpoint(md){
+            left: 50%;
+            transform: translate(-50%,0);
+            max-width: 80px;
+         }
+    }
+    .table{
+        nav{
+             display: table-cell; 
+             vertical-align: middle;
+             padding-left: 160px;
+            @include mix.breakpoint(xxl){
+                padding-left: 130px;
+            }  
+            @include mix.breakpoint(lg){
+                padding-left: 127px;
+            }
+            @include mix.breakpoint(md){
+                display: none;
+            }         
+        ul{
+            list-style: none;
+            li{
+                display: inline-block;
+                margin-left: 40px;
+                @include mix.breakpoint(xxl){
+                    margin-left: 13px;
+                    @include mix.breakpoint(xl){
+                        margin-left: 10px;
+                    }
+                    @include mix.breakpoint(lg){
+                        margin-left: 7px;
+                    }
+                }
+              a{
+                @include mix.first($float:none,);
+                 color: var.$blackcolor;
+                 @include mix.breakpoint(xl){
+                    font-size: 14px;
+                    line-height: 16px;
+                 }
+                &:hover{
+                    border-bottom: 2px solid #261817;
+                }
+              }
+              &:nth-child(2){
+                position: relative;
+                &:after{
+                    content: "";
+                    position: absolute;
+                    background: url(../images/line1.png) no-repeat;
+                    width: 10px;
+                    height: 7px;
+                    top: 5px;
+                    right: -17px;
+                     @include mix.breakpoint(xxl){
+                        right: -11px;
+                    }
+                }
+              }
+                  &:nth-child(3){
+                position: relative;
+                &:after{
+                    content: "";
+                    position: absolute;
+                    background: url(../images/line1.png) no-repeat;
+                    width: 10px;
+                    height: 7px;
+                    top: 5px;
+                    right: -17px;
+                    @include mix.breakpoint(xxl){
+                        right: -11px;
+                    }
+                }
+              }
+                &:first-child{
+                    margin-left: 0;
+                } 
+        }
+    }
+}
+.table-cell{
+    text-align: right;
+    @include mix.breakpoint(lg){
+        width: 290px;
+    }
+    @include mix.breakpoint(md){
+        display: none;
+    }
+         .button-left{
+            display: inline-block;
+             @include mix.breakpoint(lg){
+                display: none;
+             }
+
+              a{
+           @include mix.first($float:none,);
+           color: var.$blackcolor;
+            margin-right: 50px;
+            position: relative;
+            @include mix.breakpoint(xxl){
+            margin-right: 20px;
+           }
+        
+            &:after{
+                    content: "";
+                    position: absolute;
+                    background: url(../images/line1.png) no-repeat;
+                    width: 10px;
+                    height: 7px;
+                    top: 5px;
+                    right: -17px;
+                    @include mix.breakpoint(lg){
+                        right: -12px;
+                    }                    
+            }
+            &:hover{
+                border-bottom: 2px solid #261817;
+            }
+           }
+         }
+    .grup{
+        display: inline-block;
+        vertical-align: middle;
+        .img-box{
+            display: inline-block;
+            padding-right: 10px;  
+            @include mix.breakpoint(lg){
+                padding-right: 0;
+            }
+        }
+        .text-box{
+            display: inline-block;
+            p{
+              @include mix.first($float:none,);
+              color: var.$secondery;
+              text-decoration: underline;
+            }
+            span{
+                @include mix.first(13px,15px);
+                
+            }
+        }
+    }
+    .btn{
+        display: inline-block;
+        padding-left: 10px;
+        @include mix.breakpoint(lg){
+            padding-left: 5px;
+        }
+        a{
+            @include mix.first($float:none,);
+            @include mix.button;
+            color: #B8DDE3;
+            @include mix.breakpoint(lg){
+                padding: 13px 20px;
+                font-size: 13px;
+                line-height: 15px;
+            }
+            &:hover{
+                background:#B8DDE3 ;
+                color: var.$blackcolor;
+                border-bottom: none;
+            }
+            &:first-child{
+                background: #B8DDE3;
+                color: var.$blackcolor;
+                padding:18px 35px;
+                margin-right: -5px;
+                @include mix.breakpoint(lg){
+                    padding: 13px 20px;
+                    font-size: 13px;
+                    line-height: 15px;
+
+
+                }
+                &:hover{
+                    color:#B8DDE3 ;
+                    background: var.$blackcolor ;
+                }
+            }
+        }
+    }
+}
+    }
+    
+}
+
+/* header-sec style end */
+
+
+/* banner-section style start */
+
+.banner-section{
+    position: relative;
+    overflow: hidden;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    @include mix.breakpoint(xl){
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include mix.breakpoint(md){
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .video-sec{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        video{
+            width: 100%;
+            @include mix.breakpoint(xxl){
+                width: auto;
+            }
+        }
+    }
+    
+    .d-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:150px;
+        position: relative; 
+        z-index: 1;
+        @include mix.breakpoint(xl){
+            gap: 20px;
+        }
+        @include mix.breakpoint(md){
+           flex-wrap: wrap;
+        }
+        .left-banner{
+            flex: 1;
+            @include mix.breakpoint(md){
+                flex: 100%;
+                width: 100%;
+                text-align: center;
+            }
+            h1{
+                @include mix.banner(53px, 65px,);
+                @include mix.breakpoint(xl){
+                    font-size: 48px;
+                    line-height: 52px;
+                }
+                b{
+                    background: var.$blackcolor;
+                    color: #B8DDE3;
+                    padding-right: 7px;
+                    padding-left: 70px;
+                    position: relative;
+                    &:after{
+                        content: "";
+                        background: url(../images/Union.png) no-repeat;
+                        position: absolute;
+                        top: 15px;
+                        left: 10px;
+                        width: 40px;
+                        height: 35px;
+
+                    }
+                }
+                 u{
+                    background: #B8DDE3;
+                    color: var.$blackcolor;
+                    padding: 0 7px;
+                    text-decoration: none;
+                }
+            }
+            p{
+                @include mix.green(28px,30px,);
+                margin-top: 30px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+            }
+            span{
+                @include mix.paper(21px,30px,var.$whitecilor,505px);
+                display: inline-block;
+                margin-top: 24px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+                @include mix.breakpoint(md){
+                    max-width: none;
+
+                }
+            }
+        }
+         .right-banner{
+           
+            @include mix.breakpoint(md){
+                flex: 100%;
+            }
+            .width{
+                width: 464px;
+                padding: 20px;
+                background: var.$whitecilor;
+                @include mix.breakpoint(xl){
+                    max-width: 415px;
+                }
+                @include mix.breakpoint(lg){
+                    max-width: 355px;
+                }
+                @include mix.breakpoint(md){
+                    width: 100%;
+                    text-align: center;
+                    max-width: none;
+                }
+                h2{
+                    font-size: 21px;
+                     color: #5D8EAA;
+                     text-transform: uppercase;
+                     font-family: 'RobotoCondensed-Medium';
+                     font-weight: 500;
+                }
+                .form-secton{
+                    padding-top: 30px;
+
+                    .filde{
+                        display: inline-block;
+                        position: relative;
+                        margin-left: 20px;
+                        @include mix.breakpoint(xs){
+                            margin-left: 11px;
+                        }
+                        &:first-child{
+                            margin-left: 0;
+                        }
+                        label{ 
+                            padding-left: 30px;
+                            @include mix.first(15px,24px,$float:none,$txr:none,); 
+                            color: var.$blackcolor;
+                            @include mix.breakpoint(xs){
+                                font-size: 12px;
+                                line-height: 14px;
+                            }
+                            &:after{
+                                content: "";
+                                width: 24px;
+                                height: 24px;
+                                background-image: url(../images/dot-1.png);
+                                display: inline-block;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                            }
+                        }
+                         input{
+                            opacity: 0;
+                            position: absolute;
+                            right: 0;
+                            left: 0;
+                            top: 0;
+                            bottom: 0;
+                         }
+                    }
+                      .filde input:checked + label:after{
+                            content: "";
+                            position: absolute;
+                            width: 24px;
+                            height: 24px;
+                            background-image: url(../images/dot-2.png);
+                        }
+                    .input{
+                        position: relative;
+                        padding-top: 6px;
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            background-image: url(../images/arrow.png);
+                            background-repeat: no-repeat;
+                            width: 18px;
+                            height: 12px;
+                            top: 30px;
+                            left: 0;
+                        }
+                        input[type="tel"]{
+                                width: 420px;
+                                height: 60px;
+                                border: none;
+                                border-bottom: 1px solid rgba(38, 24, 23, 0.24);
+                                padding: 0 30px;
+                                @include mix.breakpoint(xl){
+                                    width: 370px;
+                                }
+                                @include mix.breakpoint(lg){
+                                    width: 310px;
+                                }
+                                @include mix.breakpoint(md){
+                                    width: 100%;
+                                    max-width: none;
+                                }
+                            }
+                        input:focus{
+                            outline: 0;   
+                        }
+                    }
+                }
+                .submit{
+                    padding-top: 16px;
+                    input[type="submit"]{
+                        width: 100%;
+                        height: 48px;
+                        background: #B8DDE3;
+                        outline: 0;
+                        border: none;
+                        font-size: 16px;
+                        line-height: 18px;
+                        font-family: 'RobotoCondensed-SemiBold';
+                        font-weight: 600 ;
+                        color: var.$blackcolor;
+                        text-transform: uppercase;
+                        transition: 0.3s;
+                        &:hover{
+                            background:var.$blackcolor;
+                            color:#B8DDE3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+/* banner-section style end */
+
+
+
+/* first-section style start */
+
+
+.first-section{
+    background: var.$whitecilor;
+    padding-top: 20px;
+    .tab{
+        ul{
+            list-style: none;
+            display: table;
+            width: 100%;
+            li{
+               display: table-cell;
+               width: 25%;
+               @include mix.breakpoint(md){
+                display: inline-block;
+                width: 50%;
+                padding: 0 20px;
+                @include mix.breakpoint(xs){
+                    width: 100%;
+                }
+               }
+                  &:after{
+                        content: "";
+                        position: absolute;
+                        background-image: url(../images/icon1.png);
+                        background-repeat: no-repeat;
+                        width: 40px;
+                        height: 40px;
+                        top: 0;
+                        left: 60px;
+                        @include mix.breakpoint(xxl){
+                            left:20px;
+                        }
+                        @include mix.breakpoint(lg){
+                            left: 0;
+                        }
+                        @include mix.breakpoint(md){
+                            left: 20px;
+                        }
+                    }
+                &:first-child{
+                    position: relative;
+                    &:after{
+                        background-image: url(../images/icon1.png);
+                    }
+                }
+                 &:nth-child(2){
+                    position: relative;
+                    &:after{
+                        background-image: url(../images/icon2.png);                    
+                        left: 60px;
+                        @include mix.breakpoint(xxl){
+                            left:20px;
+                        }
+                        @include mix.breakpoint(lg){
+                            left: 0;
+                        }
+                        @include mix.breakpoint(md){
+                            left: 20px;
+                        }
+                    }
+                }
+               &:nth-child(3){
+                    position: relative;
+                    @include mix.breakpoint(md){
+                        margin-top: 10px;
+                    }
+                    &:after{
+                        background-image: url(../images/icon3.png);
+                        left: 50px;
+                        @include mix.breakpoint(xxl){
+                            left:10px;
+                        }
+                        @include mix.breakpoint(lg){
+                            left: -20px;
+                        }
+                        @include mix.breakpoint(md){
+                            left: 7px;
+                        }
+                        @include mix.breakpoint(xs){
+                            left: 30px;
+                        }
+                    }
+                }
+               &:last-child{
+                position: relative;
+                @include mix.breakpoint(md){
+                    margin-top: 10px;
+                }
+                 &:after{
+                        background-image: url(../images/icon4.png);
+                        left: 75px;
+                        @include mix.breakpoint(xxl){
+                            left:40px;
+                        }
+                        @include mix.breakpoint(lg){
+                            left: 10px;
+                        }
+                        @include mix.breakpoint(md){
+                            left: 30px;
+                        }
+                    }
+               }
+                a{
+                    @include mix.first($float:none,$txr:none,);
+                    padding: 14px 0;
+                    color: var.$blackcolor;
+                    display: block;
+                    text-align: center;
+                    border-bottom: 2px solid transparent;
+                    &:hover{
+                        background: rgba(184, 221, 227, 0.16);
+                        border-bottom: 2px solid #5D8EAA;
+                    }
+                }
+            }
+        }
+    }
+.tab-content{
+        position: relative;
+        margin-top: 80px;
+        @include mix.breakpoint(xl){
+            margin-top: 20px;
+        }
+        @include mix.breakpoint(md){
+            width: 100%;
+            text-align: center;
+        }
+        img{
+              position: absolute;
+              top: 78%;
+              left: 0;
+              transform: translate(0, -78%);
+              max-width: 220px;
+        }
+        h2{
+            @include mix.banner;
+            color: var.$blackcolor;
+            text-transform: none;
+            max-width: 1120px;
+            margin: 0 auto;
+            @include mix.breakpoint(xxl){
+                max-width: 870px;
+            }
+            @include mix.breakpoint(md){
+                max-width: none;
+            } 
+            @include mix.breakpoint(md){
+                font-size: 40px;
+                line-height: 42px;
+            }             
+        }
+       .tab-box{
+        max-width: 645px;
+        margin: 0 auto;
+        margin-top: 40px;
+        @include mix.breakpoint(xl){
+            margin-top: 20px;
+        }
+         p{
+            @include mix.paper($pwidth:none,);
+            
+        }
+        a{
+            @include mix.btn;
+            @include mix.breakpoint(xl){
+                margin-top: 20px;
+            }
+            &:hover{
+                background: #5D8EAA;
+            }
+        }
+       }
+    }
+   
+}
+
+
+/* first-section style end */
+
+
+
+
+/* second-section style start */
+
+
+.second-section{
+    background: var.$whitecilor;
+    padding-bottom: 50px;
+    padding-top: 80px;
+    @include mix.breakpoint(xl){
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .post-section{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+            .post{ 
+                width: 25%;
+                padding: 40px;
+                border-left: 2px solid #B8DDE3;
+                 @include mix.breakpoint(xl){
+                    padding: 20px;
+                 }
+                 @include mix.breakpoint(lg){
+                    padding: 17px;
+                 }
+                 @include mix.breakpoint(md){
+                    width: 50%;
+                    border-left: none;
+                    text-align: center;
+                    border-bottom: 2px solid #B8DDE3;
+                    border-right: 2px solid #B8DDE3;
+                 }
+                 &:nth-child(2){
+                    @include mix.breakpoint(md){
+                        border-right: none;
+                    }
+                 }
+                &:nth-child(5){
+                    margin-top: 80px;
+                     @include mix.breakpoint(xl){
+                        margin-top: 20px;
+                        @include mix.breakpoint(md){
+                            margin-top: 0;
+                        }
+                     }
+                }
+                &:nth-child(6){
+                    margin-top: 80px;
+                     @include mix.breakpoint(xl){
+                        margin-top: 20px;
+                        @include mix.breakpoint(md){
+                            margin-top: 0;
+                        }
+                        @include mix.breakpoint(md){
+                            border-right: none;
+                        }
+                     }
+                }
+                &:nth-child(7){
+                    margin-top: 80px;
+                     @include mix.breakpoint(xl){
+                        margin-top: 20px;
+                        @include mix.breakpoint(md){
+                            margin-top: 0;
+                            border-bottom: none;
+                        }
+                     }
+                }
+                &:nth-child(4){
+                    margin-top: 0;
+                    @include mix.breakpoint(md){
+                        border-right: none;
+                    }
+                    span{
+                        &:before{
+                            content: ",";
+                            position: absolute;
+                            left: 50%;
+                            transform: translate(-50%,0);
+                        }                        
+                    }
+                }
+            span{
+               @include mix.banner;
+               color: var.$blackcolor;
+              font-family: 'Roboto RobotoCondensed-Light';
+              font-weight: 300;
+              position: relative;
+              @include mix.breakpoint(xs){
+                font-size: 36px;
+                line-height: 38px;
+              }
+              &:after{
+                content: "+";
+                position: absolute;
+              }
+            }
+            h4{
+                @include mix.first($float:none);
+                color: #5D8EAA;
+                padding-top: 7px;
+                text-transform: uppercase;
+            }
+            .post-img{
+                padding-top: 15px;
+            }
+        }
+        
+        .post-bg{
+            img{
+                max-width: 180px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                @include mix.breakpoint(xs){
+                    max-width: 140px;
+                    bottom: 35px;
+                    right: -9px;
+                }
+            }
+        }
+         
+    }
+}
+
+
+ /* second-section style end */
+
+
+
+
+ /* third-section style start */
+
+
+.third-section{
+    padding-top: 90px;
+    padding-bottom: 100px;
+    background: var.$whitecilor;
+    overflow: hidden;
+    position: relative;
+    @include mix.breakpoint(xl){
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .row{
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            background-image: url(../images/bg2.png);        
+            background-repeat: no-repeat;
+            width: 1920px;
+            height: 560px;
+            top: 320px;
+            right: -1000px;
+           @include mix.breakpoint(xxl){
+            height: 420px;
+            top: 300px;
+           }
+           @include mix.breakpoint(lg){
+            height: 340px;
+            top: 250px;
+           }
+            @include mix.breakpoint(md){
+                height: 220px;
+                left: 240px;
+            }
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            background-image: url(../images/bg1.png);        
+            background-repeat: no-repeat;
+            width: 1920px;
+            height: 560px;
+            top: 320px;
+            left: -260px;
+            @include mix.breakpoint(xxl){
+                height: 420px;
+                top: 300px;
+                left: -320px;
+            }
+            @include mix.breakpoint(lg){
+                height: 340px;
+                top: 250px;
+                left: -430px;
+            }
+            @include mix.breakpoint(md){
+                height: 220px;
+                left: -540px;
+            }
+        }
+        .box-sec{
+        position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            background-image: url(../images/box-1.png);
+            background-repeat: no-repeat;
+            width: 148px;
+            height: 53px;
+            top: -53px;
+            left: 147px;
+        }
+        &:before{
+            content: "";
+            position: absolute;
+            background-image: url(../images/box-2.png);
+            background-repeat: no-repeat;
+            width: 148px;
+            height: 53px;
+
+        }
+        h2{
+            @include mix.green(21px,23px,$flack:uppercase);
+            color:var.$blackcolor ;
+            position: absolute;
+            top: -11px;
+            left: 237px;
+        }
+    }
+    .movin-tx{
+        padding-top: 110px;
+        display: flex;
+        align-items: center;
+        h2{
+            @include mix.simple;            
+            display: inline-block;
+            max-width: 200px;
+        }
+        a{
+            margin-left: auto;
+            @include mix.btn;
+            margin-top: 0;
+            background: #B8DDE3;
+            border: 1px solid transparent;
+            &:hover{
+                border: 1px solid #B8DDE3;
+                background: none;
+            }
+        }
+    }
+    .movin-box{
+        position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            background: url(../images/line-1.png);
+            background-repeat: no-repeat;
+            width: 1920px;
+            height: 446px;
+            bottom: -160px;
+            left: -50px;
+            rotate: -182deg;
+            z-index: 1;
+            @include mix.breakpoint(xl){
+                bottom: -120px;
+            }
+            @include mix.breakpoint(md){
+                display: none;
+            }
+        }
+        .movin-img{
+            position: relative;
+            z-index: 1;
+            max-width: 1020px;
+            margin: 0 auto;
+            @include mix.breakpoint(xxl){
+                max-width: 800px;
+            }
+            @include mix.breakpoint(lg){
+                max-width: 600px;
+            }
+            @include mix.breakpoint(md){
+                
+            }
+            .movin-content{
+                span{
+                    @include mix.green(16px,18px,);
+                    display: inline-block;
+                    position: absolute;
+                    top: 40%;
+                    left: -8%;
+                    transform: translate(8%,-40%);
+                    @include mix.breakpoint(xxl){
+                        top: 45%;
+                        left: -9%;
+                        transform: translate(9%,-45%) ;
+                    }
+                    @include mix.breakpoint(lg){
+                        top: 34%;
+                        left: -12%;
+                        transform: translate(12%,-34%) ;
+                    }
+                    @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+                P{
+                    @include mix.green(16px,18px,);
+                    background: #7ca1b7;
+                    padding:12px 14px;
+                    border-radius: 30px;
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 20%;
+                    left: -10%;
+                    transform: translate(10%,-20%);
+                    @include mix.breakpoint(xxl){
+                        bottom: 16%;
+                        left: -13%;
+                        transform: translate(13%,-16%) ;
+                    }
+                    @include mix.breakpoint(lg){
+                        bottom: 29%;
+                        left: -15%;
+                        transform: translate(15%,-29%) ;
+                    }
+                    @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+                h2{
+                    @include mix.green(16px,18px,);
+                    background: #7ca1b7;
+                    padding:12px 14px;
+                    border-radius: 30px;
+                    display: inline-block;
+                    position: absolute;
+                    bottom: -4%;
+                    left: -10%;
+                    transform: translate(10%,4%);
+                    @include mix.breakpoint(xxl){
+                        left: -13%;
+                        transform: translate(13%,-4%) ;
+                    }
+                    @include mix.breakpoint(lg){
+                        left: -15%;
+                        bottom: -5%;
+                        transform: translate(15%,5%) ;
+                    }
+                    @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+                position: relative;
+                  &:after{
+                    content: "";
+                    position: absolute;
+                    background-image: url(../images/top-line.png);
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 574px;
+                    top: 150px;
+                    left: 0;
+                    @include mix.breakpoint(lg){
+                        top: 0;
+                    }
+                    @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+                &:before{
+                    content: "";
+                    position: absolute;
+                    background-image: url(../images/border.png);
+                    background-repeat: no-repeat;
+                    width: 1920px;
+                    height: 367px;
+                    bottom: -130px;
+                    left: -270px;
+                    z-index: -1;
+                    @include mix.breakpoint(xl){
+                        bottom: -180px;
+                    }
+                    @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+            }
+            &:before{
+                content: "";
+                position: absolute;
+                background-image: url(../images/sun.png);
+                background-repeat: no-repeat;
+                width: 139px;
+                height: 139px;
+                top: 230px;
+                left: -110px;
+                @include mix.breakpoint(xxl){
+                    top:170px;
+                    left: -100px;
+                }
+                @include mix.breakpoint(md){
+                    display: none;
+                }
+            }
+            &:after{
+                 content: "";
+                 position: absolute;
+                 background-image: url(../images/mountain.png);
+                 background-repeat: no-repeat;
+                  width: 630px;
+                 height: 210px;
+                 top: 290px;
+                 left: -270px;
+                 z-index: -2;
+                 @include mix.breakpoint(xxl){
+                    top: 230px;
+                 }
+                 @include mix.breakpoint(md){
+                    display: none;
+                 }
+            }
+        }  
+    }
+    .accordion-section{
+        max-width: 650px;
+        margin-left: auto;
+        position: relative;
+        z-index: 1;
+        background: var.$whitecilor;
+        @include mix.breakpoint(lg){
+            max-width: 450px;
+        }
+        @include mix.breakpoint(md){
+            width: 100%;
+            max-width: none;
+            text-align: center;
+            margin-top: 25px;
+        }
+        .accordion{
+            padding: 60px 0;
+            border-bottom: 1px dashed rgba(19, 28, 30, 0.3);
+            @include mix.breakpoint(xl){
+                padding: 35px 0;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+            .accordion-title{
+                position: relative;
+                h2{
+                    @include mix.green;
+                    color: var.$blackcolor;
+                    margin-top: 0;
+                    padding: 0 60px;  
+                    @include mix.breakpoint(md){
+                        padding: 0;
+                    }               
+                }
+            }
+            .accordion-title.active{
+                h2{
+                     &:after{
+                        content: "";
+                        position: absolute;
+                        background: url(../images/acc-arrow.png) no-repeat;
+                        width: 22px;
+                        height: 13px;
+                        right: 30px;
+                   }
+                }
+            }
+            .accordion-content{
+                display: none;
+                p{
+                    @include mix.box-p;
+                    max-width: 490px;
+                    margin-top: 30px;
+                    padding: 0 60px;
+                    @include mix.breakpoint(md){
+                        padding: 0;
+                        max-width: none;
+                        width: 100%;
+                        margin-top: 20px;
+                    }
+                }
+                a{
+                    padding-left: 60px;
+                    @include mix.box-p;
+                    margin-top: 24px;
+                    max-width: none;
+                    display: block;
+                    color: #5D8EAA;
+                    @include mix.breakpoint(md){
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    }
+}
+
+
+ /* third-section style end */
+
+
+
+ /* four-section style start */
+
+
+
+.four-section{
+    background: var.$whitecilor;
+    padding: 0;
+    padding-bottom: 100px;
+    overflow: hidden;
+    @include mix.breakpoint(xl){
+        padding-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+   .box-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include mix.breakpoint(lg){
+        flex-wrap: wrap;
+    }
+    .box {
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    .box-img{
+        line-height: 1px;
+    }
+    &:last-child{
+        .box-tx{
+            p{
+                margin-top: 100px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+            }
+            a{
+                margin-top: 85px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    @include mix.breakpoint(lg){
+        flex: 100%;
+    }
+    @include mix.breakpoint(md){
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    &:last-child{
+        @include mix.breakpoint(lg){
+            padding-top: 25px;
+        }
+    }
+       .box-img{
+        @include mix.breakpoint(md){
+            flex: 100%;
+        }
+        img{
+            max-width: 350px;
+    @include mix.breakpoint(xxl){
+        max-width: 100%;
+    }
+    @include mix.breakpoint(md){
+        width: 100%;
+    }
+      } 
+       }
+       .box-tx{
+          @include mix.breakpoint(md){
+            flex: 100%;
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+        }
+         h2{
+             @include mix.simple;
+             @include mix.breakpoint(xxl){
+                font-size: 33px;
+                line-height: 35px;
+             }
+         }
+         p{
+            @include mix.box-p;
+            @include mix.breakpoint(xxl){
+                max-width: 220px;
+                margin-top: 25px;
+            }
+            @include mix.breakpoint(xl){
+                margin-top: 15px;
+                max-width: 210px;
+            }
+            @include mix.breakpoint(lg){
+                max-width: 320px;
+            }
+            @include mix.breakpoint(md){
+                max-width: none;
+            }
+         }
+         a{
+            @include mix.btn;
+            background: #B8DDE3;
+            border:none;
+            @include mix.breakpoint(xxl){
+                margin-top: 20px;
+            }
+            &:hover{
+                background: var.$blackcolor;
+                color:  #B8DDE3;
+            }
+         }
+       }
+     }
+   }
+}
+
+
+ /* four-section style end */
+
+
+
+ /* logo-section style start */
+
+
+
+.logo-section{
+    padding:0;
+    padding-top: 90px;
+    padding-bottom: 60px;
+    background: var.$blackcolor;
+    @include mix.breakpoint(xl){
+       padding-top: 60px;
+       padding-bottom: 60px;
+    }
+    .tx-content{
+        h2{
+           @include mix.green;
+           display: inline-block; 
+           vertical-align: middle;
+        }
+        a{
+            @include mix.first($float:right,);
+            color: var.$whitecilor;
+            display: block;
+        }
+    }
+    .logo-one{
+         display: flex;
+         align-items: center;
+          justify-content: space-between;
+         margin-top: 40px;
+         @include mix.breakpoint(xl){
+            gap: 40px;
+            margin-top: 25px;
+         }
+       a{
+         &:first-child{
+            margin-left: 50px;
+            @include mix.breakpoint(xl){
+                margin-left: 20px;
+            }
+         }
+         &:last-child{
+            margin-right: 50px;
+            @include mix.breakpoint(xl){
+                margin-right: 20px;
+            }
+         }  
+       }
+    }
+    .logo-two{
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-top: 40px;
+        @include mix.breakpoint(xl){
+            margin-top: 20px;
+        }
+    }
+}
+
+
+ /* logo-section style end */
+
+
+
+
+
+ /*five-section style start*/
+
+
+.five-section{
+    background: var.$whitecilor;
+    padding-top: 334px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+    @include mix.breakpoint(xl){
+        padding-bottom: 60px;
+    }
+    @include mix.breakpoint(md){
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    &:before{
+         @include mix.text;
+         @include mix.breakpoint(md){
+            display: none;
+         }
+    }
+    &:after{
+        @include mix.dot;
+        @include mix.breakpoint(md){
+            display: none;
+        }
+    }
+    .owl-nav{
+        display: none;
+    }
+    .owl-dots{
+        position: absolute;
+        top: 60px;
+        right: 0;
+        .owl-dot{
+            width: 10px;
+            height: 10px;
+            background: #B8DDE3;
+            margin-top: 10px;             
+            display: block;
+        }
+        .owl-dot.active{
+            background: #5D8EAA;
+        }
+    }
+    .right-tx{
+        h2{
+            @include mix.green(21px, 23px,);
+            color: var.$blackcolor;
+            text-transform: uppercase;
+            position: absolute;
+            top: 90px;
+            left: 230px;
+            @include mix.breakpoint(xl){
+                top: 90px;
+            }
+            @include mix.breakpoint(md){
+                position: sticky;
+                text-align: center;
+            }
+        }
+    }
+    .slider{
+        display: inline-block;
+        max-width: 890px;
+        float: right;
+        @include mix.breakpoint(xl){
+            margin-top: 20px;
+            max-width: 725px;
+        }
+        @include mix.breakpoint(md){
+            max-width: none;
+            width: 100%;
+            text-align:center;
+            float: none;
+        }
+        .post-sec{
+               p{
+                @include mix.first(15px,17px,none,none,15px);            
+                color: var.$blackcolor;
+                max-width: 625px;
+        }
+        }
+        .profile-sec{
+            padding-top: 60px;   
+            @include mix.breakpoint(xl){
+                padding-top: 20px;
+            }
+            .profile{
+                display: inline-block;
+                .profile-img{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .profile-tx{
+                    display: inline-block;
+                    padding-left: 20px;
+                    vertical-align: middle;
+                    h2{
+                        @include mix.first(21px,23px,$txr:none);
+                        color: var.$blackcolor;
+                    }
+                    p{
+                        @include mix.box-p(16px,18px,0,none,);
+                        display: block;
+                        padding-top: 30px;
+                        color: #5D8EAA;
+                    }
+                }
+            }
+        }
+        .label{
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 60px;
+            position: relative;
+            &:after{
+             content: "";
+             position: absolute;
+             height: 45px;
+             width: 2px;
+             background: #D9D9D9;
+             rotate: 20deg;
+             left: 31px;
+             top: 0;
+            }
+        }
+    }
+}
+
+
+
+
+ /* five-section style end */
+
+
+
+
+
+ /*six-section style start*/
+
+
+.six-section{
+    padding-left: 0;
+    padding-right: 0;
+    background: #B8DDE3;
+    overflow: hidden;
+    position: relative;
+    @include mix.breakpoint(xl){
+        padding-left: 20px;  
+    }
+    @include mix.breakpoint(md){
+        padding-left: 0;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    .six-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mix.breakpoint(md){
+            flex-wrap: wrap;
+        }
+        .six-tx{
+            flex: 1;
+            @include mix.breakpoint(md){
+                flex: 100%;
+                width: 100%;
+                text-align: center;
+            }
+            &:before{
+              @include mix.soft;
+               @include mix.breakpoint(xxl){
+                right: 232px;                 
+             }
+             @include mix.breakpoint(xl){
+                right: 200px;
+             }
+             @include mix.breakpoint(lg){
+                right: 94px;
+             }
+             @include mix.breakpoint(md){
+                display: none;
+             }
+            }
+            &:after{
+                 @include mix.hard;
+                 @include mix.breakpoint(xxl){
+                    right: 190px;
+             }
+             @include mix.breakpoint(xl){
+                right: 159px;
+             }
+             @include mix.breakpoint(lg){
+                right: 52px;
+             }
+             @include mix.breakpoint(md){
+                display: none;
+             }
+            }
+            .float{
+                float: right;
+                padding-right: 150px;
+                 @include mix.breakpoint(xxl){
+                    padding-right: 40px;
+             }
+             @include mix.breakpoint(lg){
+                padding-right: 20px;
+             }
+             @include mix.breakpoint(md){
+                padding-left: 20px;
+             }
+                &:after{
+                    @include mix.like;
+                     @include mix.breakpoint(xxl){
+                        right: 269px;                 
+             }
+             @include mix.breakpoint(xl){
+                right: 237px;
+             }
+             @include mix.breakpoint(lg){
+                 right: 132px;
+             }
+             @include mix.breakpoint(md){
+                display: none;
+             }
+                }
+            }
+            h2{
+
+                @include mix.simple($tfrom:none,);
+                @include mix.breakpoint(md){
+                    font-size: 35px;
+                    line-height: 37px;
+                }
+            }
+            p{
+                @include mix.box-p($mwidth:510px);
+                margin-top: 32px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+                @include mix.breakpoint(md){
+                    max-width: none;
+                }
+            }
+            .six-btn{
+                margin-top: 32px;
+                @include mix.breakpoint(xl){
+                    margin-top: 20px;
+                }
+                a{
+                @include mix.btn;
+                background: #5D8EAA;
+                color: var.$whitecilor;
+                text-transform: uppercase;
+                padding: 15px 64px;
+                border: 2px solid transparent;
+                margin-top: 0;
+                @include mix.breakpoint(lg){
+                    padding: 15px 55px;
+                }
+                &:hover{
+                    background: none;
+                    border: 2px solid #5D8EAA;
+                }
+                &:last-child{
+                    padding:15px 32px;
+                    border: 2px solid #5D8EAA;
+                    background: none;
+                    margin-left: 30px;
+                    @include mix.breakpoint(lg){
+                        margin-left: 10px;
+                    }
+                @include mix.breakpoint(xs){
+                    margin-top: 15px;
+                    margin-left: 0;
+                }
+                    &:hover{
+                    background: #5D8EAA;
+                    border: 2px solid transparent;
+                }
+                }
+                
+            }
+            }
+        }
+           .six-img{
+                background-image: url(../images/banner.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 301px;
+                width: 943px;
+                flex: 1;
+                @include mix.breakpoint(md){
+                    display: none;
+                }
+            }
+    }
+}
+
+
+ /*six-section style end*/
+
+
+ /* seven-section style start */
+
+
+.seven-section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: var.$whitecilor;
+    @include mix.breakpoint(xl){
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .seven-content{
+        h2{
+           @include mix.banner;
+           color: var.$blackcolor;
+            font-family: 'RobotoCondensed-Bold';
+            font-weight: 700;
+             text-align: center;
+             @include mix.breakpoint(md){
+                font-size: 35px;
+                line-height: 37px;
+             }
+        }
+    }
+    .last-tx{
+        padding-top: 80px;
+        text-align: center;
+        @include mix.breakpoint(xl){
+            padding-top: 20px;
+        }
+        a{
+            @include mix.btn;
+            background: none;
+            border: none;
+            padding:0;
+            margin-top: 0;
+            color: rgba(38, 24, 23, 0.5);
+            text-transform: uppercase;
+            position: relative;
+             &:after{
+                content: "";
+                background-image: url(../images/arrow.png);
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 18px;
+                height: 12px;
+                top: 2px;
+                right: -40px;
+             }
+        }
+    }
+    .table{
+        padding-top: 60px;
+        @include mix.breakpoint(xl){
+            padding-top: 20px;
+        }
+        @include mix.breakpoint(md){
+            display: block;
+        }
+    .left-sec{
+        display: table-cell;        
+        vertical-align: middle;
+        @include mix.breakpoint(xl){
+            display: block;
+        }
+        .left-image{
+            position: relative;
+            .left-content{
+                position: absolute;
+                bottom: 0;
+                padding:25px;
+                p{
+                    color: #B8DDE3;
+                    text-transform: none;
+                    font-family: 'RobotoCondensed-Regular';
+                    font-weight: 400;
+                }
+                h2{
+                    @include mix.first(21px,30px,);
+                    text-transform: none;
+                    color: var.$whitecilor;
+                    @include mix.breakpoint(xs){
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+}
+.right-sec{
+    display: table-cell;     
+    vertical-align: middle;
+    padding-left: 30px; 
+    @include mix.breakpoint(xl){
+        padding-left: 20px;
+    }
+    @include mix.breakpoint(md){
+        display: block;
+        padding-left: 0;
+        padding-top: 25px;
+    }
+     .right-image{
+            position: relative;
+            line-height: 1px;
+            .right-content{
+                position: absolute;
+                bottom: 0;
+                padding:25px;
+                @include mix.breakpoint(xl){
+                    padding: 10px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 18px;
+                    color: #B8DDE3;
+                    text-transform: none;
+                    font-family: 'RobotoCondensed-Regular';
+                    font-weight: 400;
+                }
+                h2{
+                   @include mix.first(21px,30px,);
+                    text-transform: none;
+                    color: var.$whitecilor;
+                    @include mix.breakpoint(xl){
+                        line-height: 23px;
+                    }
+                    @include mix.breakpoint(xs){
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }                     
+    .right-img{
+        display: table;
+        table-layout: fixed;
+        padding-top: 40px;
+        position: relative;
+        @include mix.breakpoint(xl){
+            padding-top: 20px;
+        }
+        @include mix.breakpoint(xl){
+            display: block;
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #D9D9D9;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            @include mix.breakpoint(xl){
+                width: 22px;
+                height: 22px;
+            }
+        }
+        .img-one{
+            display: table-cell;
+            vertical-align: middle;
+            @include mix.breakpoint(md){
+                display: block;
+            }
+            &:last-child{
+                padding-left: 40px;
+                @include mix.breakpoint(xl){
+                    padding-left: 20px;
+                }
+                @include mix.breakpoint(md){
+                    padding-left: 0;
+                    padding-top: 20px;
+                }
+            }
+             .image-one{
+            position: relative;
+            img{
+                @include mix.breakpoint(md){
+                    width: 100%;
+                }
+            }
+            .img-tx{
+                position: absolute;
+                bottom: 0;
+                padding:25px;
+                @include mix.breakpoint(xl){
+                    padding: 10px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 18px;
+                    color: #B8DDE3;
+                    text-transform: none;
+                    font-family: 'RobotoCondensed-Regular';
+                    font-weight: 400;
+                }
+                h2{
+                  @include mix.first(18px,23px,);
+                    text-transform: none;
+                    color: var.$whitecilor;
+                    @include mix.breakpoint(xl){
+                        line-height: 20px;
+                    }
+                    @include mix.breakpoint(lg){
+                        font-size: 13px;
+                        line-height: 15px;
+                    }
+                    @include mix.breakpoint(md){
+                        font-size: 21px;
+                        line-height: 23px;
+                    }
+                }
+            }
+        }
+        }
+    }
+}
+}
+}
+
+ /* seven-section style end */
+
+
+
+ /* footer-section style start */
+
+.footer-section{
+    padding-top: 85px;
+    padding-bottom: 35px;
+    position: relative;
+    overflow: hidden;
+    @include mix.breakpoint(xl){
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+    @include mix.breakpoint(md){
+        padding-top: 40px;
+    }
+    .table{
+        display: flex;
+        justify-content: space-between; 
+        gap:95px;
+        @include mix.breakpoint(xl){
+            gap: 80px;
+        }
+        @include mix.breakpoint(lg){
+            gap: 35px;
+        }
+        @include mix.breakpoint(md){
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .footer-logo{
+            max-width: 90px;
+            margin-right: auto;
+            @include mix.breakpoint(md){
+                flex: 100%;
+                margin-right: 0;
+                margin: 0 auto;
+            }
+        }       
+        .footer{
+            @include mix.breakpoint(md){
+                flex: 100%;
+                text-align: center;
+            }
+            h2{
+                @include mix.footer;
+            }
+            ul{
+                list-style: none;
+                li{
+                    margin-top: 10px;
+                    &:first-child{
+                        margin-top: 33px;
+                    }
+                    a{
+                        display: inline-block;
+                        @include mix.first($float:none,);
+                        color: var.$whitecilor;
+                        text-transform: none;
+                        border-bottom: 2px solid transparent;
+                        &:hover{
+                            border-bottom: 2px solid var.$whitecilor;
+                        }
+                    }
+                }
+            }
+        }
+          .footer-top{
+            @include mix.breakpoint(md){
+                flex: 100%;
+                margin-left: 0;
+                text-align: center;
+            }
+    margin-left: auto;
+    .footer-tx{
+            a{
+        @include mix.first($float:none,);      
+        color: var.$whitecilor;
+        position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            background-image: url(../images/line.png);
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 6px;
+            top: 5px;
+            right: -21px;
+            @include mix.breakpoint(xxl){
+                right: -15px;
+             }
+        }
+    }
+    }
+ 
+  }
+  
+   
+  }
+  .footer-flex{
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    margin-top: 150px;
+    @include mix.breakpoint(xl){
+        margin-top: 30px;
+    }
+    @include mix.breakpoint(md){
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .footer-content{
+        @include mix.breakpoint(md){
+            flex: 100%;
+        }
+    margin-left: auto;
+    .footer-img{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .footer-text{
+        padding-left: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        @include mix.breakpoint(lg){
+            padding-left: 5px;
+        }
+        p{
+             font-size: 15px;  
+              line-height: 17px;
+              color: var.$whitecilor;
+              font-family: 'RobotoCondensed-Medium';
+              font-weight: 500;
+        }
+        span{
+            @include mix.first;
+            color: rgba(255, 255, 255, 0.66);
+        }
+    }
+  }
+    .mail-box{
+        padding-left: 60px;    
+    @include mix.breakpoint(md){
+        flex: 100%;
+        padding-left: 0;
+    }
+    .mail-img{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .footer-mail{
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 20px;
+        @include mix.breakpoint(lg){
+            padding-left: 5px;
+        }
+        p{
+            @include mix.first;
+            color: rgba(255, 255, 255, 0.66);
+        }
+        a{
+            font-size: 15px;  
+              line-height: 17px;
+              color: var.$whitecilor;
+              font-family: 'RobotoCondensed-Medium';
+              font-weight: 500;
+              display: block;
+        }
+    }
+  }
+       .media-box{ 
+        margin-left: auto;
+        @include mix.breakpoint(md){
+             flex: 100%;
+        }   
+    a{
+        display: inline-block;
+        margin-left: 24px;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+  }
+  }
+  .label-sec{
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    @include mix.breakpoint(xl){
+        margin-top: 35px;
+    }
+    @include mix.breakpoint(md){
+        flex-wrap: wrap;
+    }
+    p{
+        font-size: 15px;  
+        line-height: 17px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'RobotoCondensed-Medium';
+        font-weight: 500;
+        @include mix.breakpoint(md){
+            flex: 100%;
+            text-align: center;
+        }
+    }
+    .footer-sec{
+        margin-left: auto;
+        @include mix.breakpoint(md){
+            flex: 100%;
+            text-align: center;
+            padding-top: 15px;
+        }
+        a{
+            @include mix.first;
+            display: inline-block;
+            margin-left: 60px;
+            color: rgba(255, 255, 255, 0.5);
+            @include mix.breakpoint(md){
+                margin-left:0;
+                width: 100%;
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+
+            }
+            &:first-child{
+                @include mix.breakpoint(md){
+                    margin-left: 0;
+                }
+            }
+            &:nth-child(2){
+                &:after{
+                     content: "|"; 
+                    font-size: 25px;
+                    position: absolute;
+                    padding-left: 30px;
+                    color: rgba(255, 255, 255, 0.5);
+                     @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+            }
+            &:first-child{
+                position: relative;
+                &:after{
+                    content: "|"; 
+                    font-size: 25px;
+                    position: absolute;
+                    padding-left: 30px;
+                    color: rgba(255, 255, 255, 0.5);
+                     @include mix.breakpoint(md){
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+  }
+}
+
+
+ /* footer-section style end */

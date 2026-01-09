@@ -1,0 +1,181 @@
+@use "variable" as var;
+
+
+
+@mixin head{
+	 
+	background: var.$whitecilor;
+	
+}
+
+@mixin first($font: 15px, $line: 17px, $float: left,$txr: uppercase,$mrg:0){
+	font-size: $font;
+	line-height: $line;
+	color:rgba(38, 24, 23, 0.66);
+	text-transform:$txr;
+	font-family: 'RobotoCondensed-Medium';
+	font-weight: 500;
+	float: $float;
+	margin-top: $mrg;
+}
+@mixin button{
+	padding:18px 25px;
+	background: var.$blackcolor;
+	color: var.$secondery;
+	display: inline-block;
+    margin-right: 0;
+}
+@mixin banner($htop: 50px, $ltop: 52px,){
+	font-size: $htop;
+	line-height: $ltop;
+	font-family: 'RobotoCondensed-Black';
+	font-weight: 900;
+	color: var.$whitecilor;
+	text-transform: uppercase;
+}
+@mixin green($fontSize : 24px, $lineh : 26px, $flack:none){
+	font-size: $fontSize;
+	line-height:$lineh;
+	color: var.$whitecilor;
+	font-family: 'RobotoCondensed-Bold';
+	font-weight: 700;
+	text-transform: $flack; 
+}
+
+@mixin paper($psize:21px,$pline:27px,$pcolor:rgba(38, 24, 23, 0.66),$pwidth:716px,){
+	font-size: $psize;
+	line-height:$pline;
+	color: $pcolor;
+	font-family: 'RobotoCondensed-Regular';
+	font-weight: 400;
+	max-width: $pwidth;
+}
+@mixin btn{
+	font-size: 16px;
+	line-height: 18PX;
+	color: var.$blackcolor;
+	border: 1px solid #B8DDE3;
+	padding:18px 64px;
+	font-family: 'RobotoCondensed-SemiBold';
+	font-weight: 600;
+	margin-top: 48px;
+	display: inline-block;
+}
+
+@mixin box-p($Psize:16px,$pline:24px,$mtop:48px,$mwidth:380px){
+	font-size: $Psize;
+	line-height: $pline;
+	font-family: 'RobotoCondensed-Regular';
+	font-weight: 400;
+	color: var.$blackcolor;
+	margin-top: $mtop;
+	display: inline-block;
+	max-width: $mwidth;
+}
+
+@mixin dot{
+	content: "";
+    position: absolute;
+    background-image: url(../images/dot.png);
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 270px;
+    top: 22px;
+    left: 0;
+}
+@mixin text{
+	content: "";
+    position: absolute;
+    background-image: url(../images/text.png);
+    background-repeat: no-repeat;
+    height: 356px;
+    width: 1415px;
+    top: 0;
+    left: 0;
+}
+
+@mixin simple($tsize:40px,$tline:42px,$tfrom:uppercase,){
+	font-size: $tsize;
+	line-height: $tline;
+	color: var.$blackcolor;
+	text-transform: $tfrom;
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+}
+@mixin hard{
+	   content: "";
+    background-image: url(../images/movin-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 127px;
+    width: 321px;
+    top: 0;
+    right: 353px;
+}
+@mixin soft{
+    content: "";
+    background-image: url(../images/movin-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 111px;
+    width: 280px;
+    top: 70px;
+    right: 395px;
+}
+
+@mixin like{
+    content: "";
+    background-image: url(../images/movin-3.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 111px;
+    width: 243px;
+    top: 131px;
+    right: 432px;
+}
+ @mixin footer{
+ 	font-size: 15px;
+ 	line-height: 17px;
+ 	color: #B8DDE3;
+ 	font-family: 'RobotoCondensed-SemiBold';
+ 	font-weight: 600;
+ 	text-transform: uppercase;
+
+ }
+ 
+/* Breakpoint sizes */
+$screen-xs-max: 479px;
+$screen-sm-max: 639px;
+$screen-md-max: 767px;
+$screen-lg-max: 979px;
+$screen-xl-max: 1024px;
+$screen-xxl-max: 1297px;
+
+ /* Create the mixin (usually in a separate .scss file) */
+@mixin breakpoint($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $screen-xs-max) { @content; }
+  }
+
+  @else if $media == sm {
+    @media only screen and (max-width: $screen-sm-max) { @content; }
+  }
+
+  @else if $media == md {
+    @media only screen and (max-width: $screen-md-max) { @content; }
+  }
+
+  @else if $media == lg {
+    @media only screen and (max-width: $screen-lg-max) { @content; }
+  }
+
+   @else if $media == xl {
+    @media only screen and (max-width: $screen-xl-max) { @content; }
+  }
+  
+  @else if $media == xxl {
+    @media only screen and (max-width: $screen-xxl-max) { @content; }
+  }
+}
